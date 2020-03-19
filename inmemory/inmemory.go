@@ -12,7 +12,7 @@ type inMemory struct {
 	metrics map[string]*metric.Metric
 }
 
-// AddMetric for add
+// AddMetric for add metric to in memory
 func (im *inMemory) AddMetric(key string, t time.Time) {
 	if targetMetric, ok := im.metrics[key]; ok {
 		// validate time
@@ -30,7 +30,7 @@ func (im *inMemory) AddMetric(key string, t time.Time) {
 	}
 }
 
-//GetMetricCount for
+//GetMetricCount from in memory and if key last update more than 1 hour return zero
 func (im *inMemory) GetMetricCount(key string, t time.Time) (int, error) {
 	if targetMetric, ok := im.metrics[key]; ok {
 		// check if time ended

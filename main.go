@@ -31,7 +31,7 @@ func main() {
 	log.Fatal(http.ListenAndServe(":"+port, router))
 }
 
-// HandlePostMetric for
+// HandlePostMetric for handle add metric
 func HandlePostMetric(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	inMemory.AddMetric(ps.ByName("key"), time.Now())
 	js, _ := json.Marshal(metric.PostMetricResponse{})
@@ -39,7 +39,7 @@ func HandlePostMetric(w http.ResponseWriter, r *http.Request, ps httprouter.Para
 	w.Write(js)
 }
 
-// HandleGetMetric for
+// HandleGetMetric for hadle get metric count
 func HandleGetMetric(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	count, err := inMemory.GetMetricCount(ps.ByName("key"), time.Now())
 	if err != nil {

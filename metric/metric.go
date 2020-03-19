@@ -2,23 +2,23 @@ package metric
 
 import "time"
 
-// Metric for
+// Metric struct
 type Metric struct {
 	Count      int
 	UpdateTime time.Time
 }
 
-// HandleMetrics for
+// HandleMetrics Interface for handle metric saveing in memory or in database
 type HandleMetrics interface {
 	AddMetric(key string, t time.Time)
 	GetMetricCount(key string, t time.Time) (int, error)
 }
 
-// PostMetricResponse for
+// PostMetricResponse empty response
 type PostMetricResponse struct {
 }
 
-// GetMetricCountResponse for
+// GetMetricCountResponse success response
 type GetMetricCountResponse struct {
 	Value int
 }
