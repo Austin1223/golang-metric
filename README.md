@@ -15,3 +15,9 @@ For run app
 For run test 
 
 >make test
+
+
+
+For run build 
+
+>make build
